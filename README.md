@@ -1,2 +1,8 @@
 # vte_research
-Exploratory analyses of hospital bed utilization (inpatient &amp; icu) in response to COVID-19.
+Exploratory analyses of hospital bed utilization (inpatient and icu) in response to COVID-19.
+This project was first assigned to me to analyze the numbers of beds that have been available, occupied, and occupied from COVID-19 from: https://protect-public.hhs.gov/pages/hospital-utilization. 
+This has now evolved into a time-series analysis using the following variables: all_adult_hospital_inpatient_bed_occupied_7_day_avg, all_adult_hospital_inpatient_beds_7_day_avg, total_adult_patients_hospitalized_confirmed_covid__day_avg, total_staffed_adult_icu_beds_7_day_avg, staffed_adult_icu_bed_occupancy_7_day_avg, staffed_adult_icu_bed_occupancy_7_day_avg, staffed_adult_patients_confirmed_covid_7_day_avg where suppressed values have been ignored (for now).
+Some areas of concern include: Staffing is a concern, especially for the icu analysis.  There is a variable for all icu beds but that would include pediatric, which results in the following issue- The reason adults were only analyzed due to the inconsistency between pediatric suspected and confirmed cases. Suspected & hospitalized for COVID only; confirmed for both flu & COVID.
+ They provide state level at this link: https://healthdata.gov/Hospital/COVID-19-Reported-Patient-Impact-and-Hospital-Capa/g62h-syeh/data 
+However, the variables are not all consistent…. For example they don't have: all_adult_hospital_inpatient_bed_occupied_7_day_avg only inpatient bed utilization (so this would include pediatric; so my analysis will not match this analysis).
+At the state level, I used grouping variable and mutate function to select variables of intrest and sum them accross each individual state. For the rate, I then combined columns and divided by 100 to obtain the rate per 100.  
